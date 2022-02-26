@@ -267,8 +267,8 @@ class App extends React.Component {
                               <td>California</td>
                               <td>91710</td>
                               <td>
-                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style="width: 60px">Edit</button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style="width: 60px">Delete</button>
+                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style={{width: "60px"}}>Edit</button>
+                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style={{width: "60px"}}>Delete</button>
                               </td>
                             </tr>
                             <tr>
@@ -281,8 +281,8 @@ class App extends React.Component {
                               <td>California</td>
                               <td>91763</td>
                               <td>
-                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style="width: 60px">Edit</button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style="width: 60px">Delete</button>
+                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style={{width: "60px"}}>Edit</button>
+                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style={{width: "60px"}}>Delete</button>
                               </td>
                             </tr>
                             <tr>
@@ -295,8 +295,8 @@ class App extends React.Component {
                               <td>California</td>
                               <td>91710</td>
                               <td>
-                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style="width: 60px">Edit</button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style="width: 60px">Delete</button>
+                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style={{width: "60px"}}>Edit</button>
+                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style={{width: "60px"}}>Delete</button>
                               </td>
                             </tr>
                             <tr>
@@ -309,8 +309,8 @@ class App extends React.Component {
                               <td>California</td>
                               <td>91763</td>
                               <td>
-                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style="width: 60px">Edit</button>
-                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" style="width: 60px">Delete</button>
+                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit" style={{width: "60px"}}>Edit</button>
+                                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete" sstyle={{width: "60px"}}>Delete</button>
                               </td>
                             </tr>
                           </tbody>
