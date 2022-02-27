@@ -1,12 +1,27 @@
 import React from "react";
 
 class ClientDeleteModal extends React.Component {
+    componentDidMount() {
+        window.$("#delete").modal("show");
+        window.$("#delete").on('hidden.bs.modal', this.props.handleCloseClientDeleteModal);
+    }
+
+    handleDelete = () => {
+        window.$("#delete").modal("hide");
+        this.props.handleDeleteClientDeleteModal(this.props.id);
+    }
+
+    handleClose = () => {
+        window.$("#delete").modal("hide");
+        this.props.handleCloseClientDeleteModal();
+    }
+
     render() {
         return (
             <div 
                 className="modal fade"
                 id="delete"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -22,6 +37,7 @@ class ClientDeleteModal extends React.Component {
                                 className="close"
                                 data-dismiss="modal"
                                 aria-label="Close"
+                                onClick={this.handleClose}
                             >
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -33,11 +49,12 @@ class ClientDeleteModal extends React.Component {
                             <button
                                 type="button"
                                 className="btn btn-secondary"
-                                data-dismiss="modal"
+                                onClick={this.handleClose}
                             >
                                 Close
                             </button>
-                            <button type="button" className="btn btn-danger">
+                            <button type="button" className="btn btn-danger" onClick={this.handleDelete}>
+
                                 Delete
                             </button>
                         </div>

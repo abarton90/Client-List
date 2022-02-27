@@ -7,6 +7,8 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
+            showClientDeleteModal: false,
+            deleteClientId: "",
             clients: [
                 {
                     id: "1",
@@ -55,29 +57,64 @@ class App extends React.Component {
             ]
         };
     }
+    
+    handleShowClientDeleteModal = (id) => {   
+        var newState = this.state;
+        newState.showClientDeleteModal = true;
+        newState.deleteClientId = id;
+        this.setState(newState);
+    }
+
+    handleCloseClientDeleteModal = () => {
+        var newState = this.state;
+        newState.showClientDeleteModal = false;
+        this.setState(newState);
+    }
+
+    handleDeleteClientDeleteModal = (id) => {
+        var newState = this.state;
+        newState.showClientDeleteModal = false;
+        for(var i = 0; i < newState.clients.length; i++) {
+            if (newState.clients[i].id === id) {
+                newState.clients.splice(i, 1);
+            }
+        } 
+        this.setState(newState);
+    }
 
     render() {
         return (
             <div>
                 <ClientAddEditModal />
                 
-                <ClientDeleteModal/>
+                {
+                    this.state.showClientDeleteModal
+                    ?
+                    <ClientDeleteModal 
+                        id={this.state.deleteClientId}
+                        handleCloseClientDeleteModal={this.handleCloseClientDeleteModal}
+                        handleDeleteClientDeleteModal={this.handleDeleteClientDeleteModal}
+                    />
+                    :
+                    null
+                }
 
                 <div className="container">
-                    <div class="jumbtron">
-                        <div class="card">
-                            <div class="card-header">Client List</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Display Database Content</h5>
+                    <div className="jumbtron">
+                        <div className="card">
+                            <div className="card-header">Client List</div>
+                            <div className="card-body">
+                                <h5 className="card-title">Display Database Content</h5>
 
                                 <ClientTable 
                                     clients={this.state.clients}
+                                    handleShowClientDeleteModal={this.handleShowClientDeleteModal}
                                 />
                                     
-                                <div class="row">
-                                    <div class="col-md-12 text-right">
+                                <div className="row">
+                                    <div className="col-md-12 text-right">
                                         <button
-                                            class="btn btn-primary btn-sm"
+                                            className="btn btn-primary btn-sm"
                                             data-toggle="modal"
                                             data-target="#addEdit"
                                         >

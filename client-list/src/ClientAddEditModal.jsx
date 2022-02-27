@@ -7,7 +7,7 @@ class ClientAddEditModal extends React.Component {
             <div
                 className="modal fade"
                 id="addEdit"
-                tabindex="-1"
+                tabIndex="-1"
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -30,7 +30,7 @@ class ClientAddEditModal extends React.Component {
                         <div className="modal-body">
                             <form>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
+                                    <label>Name</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -39,7 +39,7 @@ class ClientAddEditModal extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Phone</label>
+                                    <label>Phone</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -48,7 +48,7 @@ class ClientAddEditModal extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
+                                    <label>Email address</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -57,7 +57,7 @@ class ClientAddEditModal extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Address</label>
+                                    <label>Address</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -66,7 +66,7 @@ class ClientAddEditModal extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">City</label>
+                                    <label>City</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -75,7 +75,7 @@ class ClientAddEditModal extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="inputState">State</label>
+                                    <label>State</label>
                                     <select id="inputState" className="form-control">
                                         <option value="">Choose...</option>
                                         <option value="Alabama">Alabama</option>
@@ -132,7 +132,7 @@ class ClientAddEditModal extends React.Component {
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleInputEmail1">Zip</label>
+                                    <label>Zip</label>
                                     <input
                                         type="text"
                                         className="form-control"

@@ -20,10 +20,10 @@ class ClientTable extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.clients.map((client) => {
+                    {this.props.clients.map((client) => (
                         <ClientRow 
-                            key={client.id} 
-                            id={client.id}
+                            key={client.id}
+                            id={client.id} 
                             name={client.name} 
                             phone={client.phone} 
                             email={client.email} 
@@ -32,11 +32,11 @@ class ClientTable extends React.Component {
                             city={client.city} 
                             state={client.state} 
                             zip={client.zip} 
-                        />
-                    })}
+                            handleShowClientDeleteModal={this.props.handleShowClientDeleteModal}
+                        />    
+                    ))}
                 </tbody>
             </table>
-
         );
     }
 }

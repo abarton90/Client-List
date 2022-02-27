@@ -1,10 +1,14 @@
 import React from "react";
 
 class ClientRow extends React.Component {
+    handleShowDelete= () => {
+        this.props.handleShowClientDeleteModal(this.props.id);
+    }
+
     render() {
         return (
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">{this.props.id}</th>
                 <td>{this.props.name}</td>
                 <td>{this.props.phone}</td> 
                 <td>{this.props.email}</td>
@@ -17,18 +21,16 @@ class ClientRow extends React.Component {
                     <button
                         type="button"
                         className="btn btn-primary btn-sm"
-                        data-toggle="modal"
-                        data-target="#addEdit"
                         style={{ width: "60px" }}
+                        
                     >
                         Edit
                     </button>
                     <button
                         type="button"
                         className="btn btn-danger btn-sm"
-                        data-toggle="modal"
-                        data-target="#delete"
                         style={{ width: "60px" }}
+                        onClick={this.handleShowDelete}
                     >
                         Delete
                     </button>
