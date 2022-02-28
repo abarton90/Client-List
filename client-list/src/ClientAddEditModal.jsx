@@ -2,6 +2,96 @@ import React from "react";
 
 
 class ClientAddEditModal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: this.props.client.id,
+            name: this.props.client.name,
+            phone: this.props.client.phone,
+            email: this.props.client.email,
+            address1: this.props.client.address1,
+            address2: this.props.client.address2,
+            city: this.props.client.city,
+            state: this.props.client.state,
+            zip: this.props.client.zip
+        }
+    } 
+
+    componentDidMount() {
+        window.$("#addEdit").modal("show");
+        window.$("#addEdit").on('hidden.bs.modal', this.props.handleAddEditModal);
+    }
+
+    handleNameChange = (event) => {
+        var newState = this.state;
+        newState.name = event.target.value;
+        this.setState(newState);
+    }
+
+    handlePhoneChange = (event) => {
+        var newState = this.state;
+        newState.phone = event.target.value;
+        this.setState(newState);
+    }
+
+    handleEmailChange = (event) => {
+        var newState = this.state;
+        newState.email = event.target.value;
+        this.setState(newState);
+    }
+
+    handleAddress1Change = (event) => {
+        var newState = this.state;
+        newState.address1 = event.target.value;
+        this.setState(newState);
+    }
+
+    handleAddress2Change = (event) => {
+        var newState = this.state;
+        newState.address2 = event.target.value;
+        this.setState(newState);
+    }
+
+    handleCityChange = (event) => {
+        var newState = this.state;
+        newState.city = event.target.value;
+        this.setState(newState);
+    }
+
+    handleStateChange = (event) => {
+        var newState = this.state;
+        newState.state = event.target.value;
+        this.setState(newState);
+    }
+
+    handleZipChange = (event) => {
+        var newState = this.state;
+        newState.zip = event.target.value;
+        this.setState(newState);
+    }
+     
+    handleSave = () => {
+        window.$("#addEdit").modal("hide");
+        this.props.handleSaveClientAddEditModal(
+            {
+                id: this.state.id,
+                name: this.state.name,
+                phone: this.state.phone,
+                email: this.state.email,
+                address1: this.state.address1,
+                address2: this.state.address2,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip
+            }
+        );
+    }
+
+    handleClose = () => {
+        window.$("#addEdit").modal("hide");
+        this.props.handleCloseClientAddEditModal();
+    }
+   
     render() {
         return (
             <div
@@ -21,8 +111,8 @@ class ClientAddEditModal extends React.Component {
                             <button
                                 type="button"
                                 className="close"
-                                data-dismiss="modal"
                                 aria-label="Close"
+                                onClick={this.handleClose}
                             >
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -34,8 +124,11 @@ class ClientAddEditModal extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_name"
                                         placeholder="Enter Name"
+                                        maxLength="255"
+                                        value={this.state.name}
+                                        onChange={this.handleNameChange}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -43,8 +136,11 @@ class ClientAddEditModal extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_phone"
                                         placeholder="Enter Phone Number"
+                                        maxLength="20"
+                                        value={this.state.phone}
+                                        onChange={this.handlePhoneChange}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -52,8 +148,11 @@ class ClientAddEditModal extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_email"
                                         placeholder="Enter Email"
+                                        maxLength="100"
+                                        value={this.state.email}
+                                        onChange={this.handleEmailChange}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -61,8 +160,23 @@ class ClientAddEditModal extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_address1"
                                         placeholder="Enter Address"
+                                        maxLength="255"
+                                        value={this.state.address1}
+                                        onChange={this.handleAddress1Change}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Address 2</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="addEdit_address2"
+                                        placeholder="Enter Address"
+                                        maxLength="255"
+                                        value={this.state.address2}
+                                        onChange={this.handleAddress2Change}                                        
                                     />
                                 </div>
                                 <div className="form-group">
@@ -70,13 +184,16 @@ class ClientAddEditModal extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_city"
                                         placeholder="Enter City"
+                                        maxLength="100"
+                                        value={this.state.city}
+                                        onChange={this.handleCityChange}
                                     />
                                 </div>
                                 <div className="form-group">
                                     <label>State</label>
-                                    <select id="inputState" className="form-control">
+                                    <select id="addEdit_state" className="form-control"  value={this.state.state} onChange={this.handleStateChange}>
                                         <option value="">Choose...</option>
                                         <option value="Alabama">Alabama</option>
                                         <option value="Alaska">Alaska</option>
@@ -130,14 +247,18 @@ class ClientAddEditModal extends React.Component {
                                         <option value="Wisconsin">Wisconsin</option>
                                         <option value="Wyoming">Wyoming</option>
                                     </select>
+                                    
                                 </div>
                                 <div className="form-group">
                                     <label>Zip</label>
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id=""
+                                        id="addEdit_zip"
                                         placeholder="Enter Zip"
+                                        maxLength="5"
+                                        value={this.state.zip}
+                                        onChange={this.handleZipChange}
                                     />
                                 </div>
                             </form>
@@ -147,10 +268,12 @@ class ClientAddEditModal extends React.Component {
                                 type="button"
                                 className="btn btn-secondary"
                                 data-dismiss="modal"
+                                onClick={this.handleClose} 
                             >
                                 Close
                             </button>
-                            <button type="button" className="btn btn-primary">
+                            
+                            <button type="button" className="btn btn-primary" onClick={this.handleSave} /*added*/> 
                                 Save changes
                             </button>
                         </div>

@@ -53,7 +53,11 @@ class ClientDeleteModal extends React.Component {
                             >
                                 Close
                             </button>
-                            <button type="button" className="btn btn-danger" onClick={this.handleDelete}>
+                            <button 
+                                type="button" 
+                                className="btn btn-danger" 
+                                onClick={this.handleDelete}
+                            >
 
                                 Delete
                             </button>

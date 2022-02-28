@@ -7,7 +7,6 @@ class ClientTable extends React.Component {
             <table className="table table-striped table-dark table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Name</th> 
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
@@ -33,6 +32,7 @@ class ClientTable extends React.Component {
                             state={client.state} 
                             zip={client.zip} 
                             handleShowClientDeleteModal={this.props.handleShowClientDeleteModal}
+                            handleShowClientAddEditModal={this.props.handleShowClientAddEditModal}
                         />    
                     ))}
                 </tbody>
